@@ -1,7 +1,11 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 public class CheckOut{ 
 public static void main(String...args){
-
+             LocalDateTime now = LocalDateTime.now();
+     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedTime = now.format(formatter);
      Scanner input = new Scanner(System.in);
 
      System.out.print("What is the Customers Name: ");
@@ -70,7 +74,7 @@ System.out.print("\n");
              LOCATION; 321, HEBERT MACAULAY WAY, SABO YABA, LAGOS.
              TEL: 03293828343
                """);
-System.out.println("Date:         ");
+System.out.println("Date: "+formattedTime);
 System.out.println("Cashier: "+cashierName );
 System.out.println("Customer Name: "+customerName );
 System.out.println("=====================================================================================");
@@ -82,7 +86,7 @@ float costOfItems= 0;
 float total2=0;
 float newCost=0;
 if (newItems!=0){
-System.out.println("                        "+ itemBought+"             "+noOfItems+"          "+price+"               "+(price*noOfItems));
+System.out.println("                        "+ itemBought+"/t             "+noOfItems+"\t          "+price+" \t              "+(price*noOfItems));
 
    for(int index=0;index<newItems;index++){
      
@@ -128,7 +132,7 @@ float moneyPaid= input.nextFloat();
 
 
 System.out.println("\nPlease Wait While we process your Payment.............");
-System.out.println("Payement Successfull👍️\n");
+System.out.println("Payment Successfull👍️\n");
 
      System.out.print("""
              SEMICOLON STORES
@@ -136,7 +140,7 @@ System.out.println("Payement Successfull👍️\n");
              LOCATION; 321, HEBERT MACAULAY WAY, SABO YABA, LAGOS.
              TEL: 03293828343
                """);
-System.out.println("Date:         ");
+System.out.println("Date: "+formattedTime);
 System.out.println("Cashier: "+cashierName );
 System.out.println("Customer Name: "+customerName );
 System.out.println("=====================================================================================");
@@ -154,13 +158,9 @@ System.out.println("                        "+ itemBought+"             "+noOfIt
    for(int index2=0;index2<newItems;index2++){
      
 System.out.println("                            "+ itemBoughtArray[index2]+"             "+noOfItemsArray[index2]+"          "+priceArray[index2]+"               "+(priceArray[index2]*noOfItemsArray[index2]));
-//     costOfItems= priceArray[index2]*noOfItemsArray[index2];
-//     total2+=costOfItems;
-//     costOfItems=0;
+
 }
-          
-//          total2+=(price*noOfItems);  
-          //newCost= total2-(((discount/100)*total2))+((float)(17.50/100)*total2);
+  
 System.out.println("""
 --------------------------------------------------------------------------------------
 """);
@@ -199,28 +199,5 @@ System.out.println("============================================================
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 }
-}
-
-
-
-
-
-
-
-
-
-
-
