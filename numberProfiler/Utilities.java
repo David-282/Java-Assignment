@@ -3,12 +3,12 @@ package numberProfiler;
 public class Utilities {
 
 
-    public boolean isEven(int number) {
+    public static boolean isEven(int number) {
 
         return number % 2 == 0;
     }
 
-    public boolean isOdd(int number) {
+    public static boolean isOdd(int number) {
         return number % 2 != 0;
     }
 
@@ -31,7 +31,7 @@ public class Utilities {
         return !isPrimeNumber(number);
     }
 
-    public static boolean PerfectNumber(int number) {
+    public static boolean isPerfectNumber(int number) {
         int sumOfFactors = 0;
         int factors = 1;
         for (factors = 1; factors < number; factors++) {
@@ -39,14 +39,11 @@ public class Utilities {
                 sumOfFactors += factors;
             }
         }
-        if (number == sumOfFactors) {
-            return true;
-        } else {
-            return false;
-        }
+        return number == sumOfFactors;
     }
 
     public static boolean isArmStrongNumber(int number) {
+        String digits =""+number;
         int digit = number;
         int sumOfExponential = 0;
         int numberLength = digits.length();
@@ -59,7 +56,7 @@ public class Utilities {
         return sumOfExponential == number;
     }
 
-    public static String getDiviors(int number) {
+    public static String getDivisors(int number) {
 
         String divisiors = "";
 
@@ -68,10 +65,10 @@ public class Utilities {
                 divisiors += count + ",";
             }
         }
-        return divisiors;
+        return divisiors.substring(0,(divisiors.length()-1));
     }
 
-    public static boolen isNaturalNumber(int number) {
+    public static boolean isNaturalNumber(int number) {
         return number >= 1;
 
     }
@@ -105,13 +102,11 @@ public class Utilities {
             while(number != 0){
 
                     int digit = number % 10;
-                    sum = sum + digit;
+                    sum += digit;
                     number = number / 10;
             }
             return sum;
          }
-
-
 
     public static void base10to2(int number) {
 
@@ -150,7 +145,7 @@ public class Utilities {
             reversed += convertedNum.charAt(index);
         }
 
-        System.out.println("THE CONVERTED NUMBER IS --> " + reversed);
+        System.out.printf("%d CONVERTED TO BASE TWO  IS -->  %s%n",number,reversed);
     }
 
 
@@ -165,6 +160,50 @@ public class Utilities {
         }
 
         return originalNumber == reversedNumber;
+    }
+
+    public static boolean isSquareNumber (int number){
+        for (int count = 1 ; count < number ;count++){
+            if (count * count== number){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean isCubeNumber (int number){
+        for (int count = 1 ; count < number ; count++){
+            if ((int)Math.pow(count,3)== number){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public static void numberProfiling (int number){
+
+//        condition ? value_if_true : value_if_false
+
+        if (isEven(number)) System.out.println(number + " is an Even number ");
+        if (isOdd(number)) System.out.println(number + " is a Odd number ");
+        if (isPrimeNumber(number)) System.out.println(number + " is a Prime number ");
+        if (isCompositeNumber(number)) System.out.println(number + " is a Composite number ");
+        if (isPerfectNumber(number)) System.out.println(number + " is a Perfect number ");
+        if (isArmStrongNumber(number)) System.out.println(number + " is an Armstrong number ");
+        if (isNaturalNumber(number)) System.out.println(number + " is a Natural number ");
+        if (isSquareNumber(number)) System.out.println(number + " is a Square number ");
+        if (isAbundant(number)) System.out.println(number + " is an Abundant number ");
+        if (isDeficient(number)) System.out.println(number + " is a Deficient  number ");
+            base10to2(number);
+        if (isPalindrome(number)) System.out.println(number + " is a Palindrome number ");
+        if (isCubeNumber(number)) System.out.println(number + " is a Cube number ");
+        System.out.printf("The Digital Sum of %d is %d%n",number,digitalSum(number));
+        System.out.printf("The Divisors of %d are %s%n",number,getDivisors(number));
+
+
+
+
     }
 }
 
